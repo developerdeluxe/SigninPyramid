@@ -1,0 +1,108 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Signin</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://underscorejs.org/underscore-min.js"></script>
+    <script src="https://backbonejs.org/backbone-min.js"></script>
+    <script>
+        SignInView = Backbone.View.extend({
+
+            default: {
+
+            },
+            initialize: function () {
+
+                this.$el.replaceWith('<div id="forms"><form method="POST"> <input type="text" id="name" /> ' +
+                    '<input id="email" /> <input id="password"/> ' +
+                    '<button type="submit"> Sign In </button> ' +
+                    '</form></div>'
+                )
+
+            },
+            urlRoot: 'http://0.0.0.0:6543/'
+        });
+
+        SignUpView = Backbone.View.extend({
+            default: {},
+            initialize: function() {
+                 this.$el.replaceWith('<div id="forms"><form method="POST"><input type="text" placeholder="FirstName"><br/>' +
+                     '<input type="text" placeholder="LastName"><br/>' +
+                     '<input type="text" placeholder="Email"><br/>' +
+                     '<input type="text" placeholder="Password"><br/>' +
+                     '<input type="text" placeholder="Confrom Password"><br/>' +
+                     '<input type="button" value="SignUp"><br/>' +
+                     '</form></div>')
+            },
+            urlRoot: 'http://0.0.0.0:6543/'
+        });
+
+        signInForm = function() {
+            let signin = new SignInView({el: document.getElementById('forms')});
+        };
+        SignUpForm = function() {
+          let signup = new SignUpView({el: document.getElementById('forms')})
+        };
+
+        $(document).ready(function() {
+//            {#let signin = new SignInView({el: document.getElementById('signin')})#}
+        })
+    </script>
+
+    <!--?<script>-->
+
+        <!--?SignInview = Backbone.View.extend({-->
+            <!--?default: {-->
+                <!--?Email: 'default',-->
+                <!--?Password: 'default',-->
+                <!--?AuthUser: 'default'-->
+            <!--?},-->
+            <!--?initialize: function() {-->
+
+            <!--?},-->
+            <!--?urlRoot: 'http://0.0.0.0:6543/'-->
+        <!--?})-->
+
+        <!--?signinObject = new SignInview()-->
+        <!--?$(document).ready(function() {-->
+
+        <!--?});-->
+    <!--?</script>-->
+</head>
+<body>
+
+<b>You Want to signUp or SignIn</b> <br/>
+<button onclick="signInForm()">Sign In</button>
+<button onclick="SignUpForm()">SignUp</button>
+<br><br>
+<div id="forms"></div>
+
+<i>${mess}</i>
+
+<div style="width:35%;margin: 7em 0 0 30em">
+    <form method="post">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" name="userEmail" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" name="userPassword" id="exampleInputPassword1" placeholder="Password">
+  </div>
+  <div class="form-check">
+    <input type="checkbox" name="authUser" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</div>
+
+
+</body>
+</html>
